@@ -1,12 +1,27 @@
 How does your gem take advantage of Ruby’s metaprogramming capabilities?
 
-
+The gem use metaprogrammation in order to generate all the color methods on the fly. To do that we use a hash table, each key of the hash is a symbole representing the color (text) and each value is the color code.
 
 
 And, the following reflections:
 
 How long did you spend working on this project?
+2 hours... But I'm not really happy with my solution! In fact if you want to colorize a string you need to do the following: 
+
+my_string = "my_string"
+my_string.blue(my_string)
+
+It's seems pretty stupid to call the method blue on my_string and to pass my_string as an argument.
+I will expect to find a solution that allow the user to do" 
+
+my_string.blue
+
+But I'm really stuck for the moment. Will try to find something
+
+
 
 What was the most rewarding challenge you conquered?
+It's not a conquest for the moment it's more a dead-end for the moment.
 
 Where do you still have room to grow?
+Find a solution !!! 

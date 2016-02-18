@@ -19,9 +19,10 @@ This gem provide 3 class methods on string:
 require 'colorizer'
 
  my_string = "My string"
- my_string.blue(my_string)
+ my_string.blue
  ```
 
 Installation
 --------------
-gem install colorizer-0.0.0.gem
+In directory execute:
+`gem install colorizer-0.0.0.gem`
