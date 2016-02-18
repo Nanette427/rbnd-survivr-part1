@@ -1,9 +1,20 @@
 class String
 
+	# Use method missing to call create_colors
+	# if needed
+	def method_missing(name, *args)
+		unless String.colors.include?(name.to_s)
+			String.create_colors
+			self.send(name)
+		else
+			super
+		end	
+	end
+
 	# Create all colors method on the fly
   def self.create_colors
   	colors_map.each do |color, code|
-      define_method(color) { "\e[#{code}m#{self}\e[0m" }
+      define_method(color.to_sym) { "\e[#{code}m#{self}\e[0m" }
     end
   end
 
@@ -15,11 +26,12 @@ class String
   # Print text to test each color method
   def self.sample_colors
   	colors.each do |sym_color|
-      puts "This is color " + sym_color.to_s.send(sym_color)
+  		color = sym_color.to_s
+      puts "This is color " + color.send(sym_color)
 		end
   end
 
-  #1 Retuns a hash with all colors available
+  # Retuns a hash with all colors available
   # (keys) and their code (values)
   def self.colors_map
   	{
@@ -42,6 +54,3 @@ class String
 		} 	
   end
 end
-
-String.create_colors
-
